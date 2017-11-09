@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  noun: one
+  adjective: one
+  verb: one
+  recipient: one
+
+two:
+  noun: two
+  adjective: two
+  verb: two
+  recipient: two

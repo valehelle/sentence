@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108074716) do
+ActiveRecord::Schema.define(version: 20171109082143) do
+
+  create_table "adjectives", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "noun_id"
+    t.integer "adjective_id"
+    t.integer "verb_id"
+    t.integer "recipient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["adjective_id"], name: "index_posts_on_adjective_id"
+    t.index ["noun_id"], name: "index_posts_on_noun_id"
+    t.index ["recipient_id"], name: "index_posts_on_recipient_id"
+    t.index ["verb_id"], name: "index_posts_on_verb_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
@@ -39,6 +58,12 @@ ActiveRecord::Schema.define(version: 20171108074716) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
+  end
+
+  create_table "verbs", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

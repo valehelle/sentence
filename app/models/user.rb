@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :trackable, :validatable
   before_create :set_nickname
+  has_many :posts
   include DeviseTokenAuth::Concerns::User
 
     private
