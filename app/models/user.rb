@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :trackable, :validatable
   before_create :set_nickname
-  has_many :posts
+  has_many :feed, :class_name => 'Post', :foreign_key => 'recipient_id'
   include DeviseTokenAuth::Concerns::User
 
     private
