@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171110074743) do
+ActiveRecord::Schema.define(version: 20171114085051) do
 
   create_table "adjectives", force: :cascade do |t|
     t.string "content"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 20171110074743) do
     t.boolean "accepted", default: false
     t.index ["followable_id", "followable_type"], name: "fk_followables"
     t.index ["follower_id", "follower_type"], name: "fk_follows"
+  end
+
+  create_table "inviteds", force: :cascade do |t|
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "likes", force: :cascade do |t|

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  mount_devise_token_auth_for 'User', at: 'auth'
+  mount_devise_token_auth_for 'User', at: 'auth', controllers: {
+    registrations: 'registration',
+  }
   get '/feed/:id', to: 'post#show'
   get 'relationship/followers/', to: 'relationship#follower'
   get 'relationship/following/', to: 'relationship#following'
